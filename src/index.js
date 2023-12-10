@@ -232,7 +232,7 @@ class World {
     const far = 1000.0;
 
     this._camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    this._camera.position.set(75, 20, 0);
+    this._camera.position.set(5, 0, 0);
 
     this._scene = new THREE.Scene();
 
@@ -423,4 +423,5 @@ let _APP = null;
 
 window.addEventListener("DOMContentLoaded", () => {
   _APP = new World();
+  alert("Press W to Start")
 });
