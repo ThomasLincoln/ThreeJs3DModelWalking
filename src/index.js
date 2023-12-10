@@ -237,6 +237,25 @@ class World {
     this._scene = new THREE.Scene();
 
     this._addLights();
+    // IMPORT DA IMAGEM
+    const textureLoader = new THREE.TextureLoader(); 
+    const imageTexture = textureLoader.load("./assets/guia.jpg")
+
+    const planeGeometry = new THREE.PlaneGeometry(200, 100);
+
+    const material = new THREE.MeshBasicMaterial({
+      map: imageTexture,
+      transparent: true,
+    });
+    
+    const imageMesh = new THREE.Mesh(planeGeometry, material);
+
+
+    this._scene.add(imageMesh);
+
+
+
+
 
     let loader = new GLTFLoader();
 
@@ -323,23 +342,21 @@ class World {
       // Key and mouse events
       window.addEventListener("keydown", (e) => {
         const { keyCode } = e;
-        if (keyCode === 87 || keyCode === 38) {
+        if (keyCode === 87) {
           baseActions.idle.weight = 0;
           baseActions.run.weight = 5;
           activateAction(baseActions.run.action);
           activateAction(baseActions.idle.action);
-          movingForward = true;
         }
       });
 
       window.addEventListener("keyup", (e) => {
         const { keyCode } = e;
-        if (keyCode === 87 || keyCode === 38) {
+        if (keyCode === 87) {
           baseActions.idle.weight = 1;
           baseActions.run.weight = 0;
           activateAction(baseActions.run.action);
           activateAction(baseActions.idle.action);
-          movingForward = false;
         }
       });
 
@@ -423,5 +440,5 @@ let _APP = null;
 
 window.addEventListener("DOMContentLoaded", () => {
   _APP = new World();
-  alert("Press W to Start")
+  // alert("Press W to Start")
 });
