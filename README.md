@@ -26,7 +26,7 @@ click with the right button of mouse in the index.html
 click in run with live server
 ```
 
-With this, the project will be open in your default browser. Use the WASD to run in the scenario. 
+With this, the project will be open in your default browser. 
 
 ## 📫 Contributing to ThreeJs3DModelWalking
 
